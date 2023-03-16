@@ -7,6 +7,8 @@ app.set('views' , 'views');
 app.set('view engine', 'hbs');
 app.use(express.static('public'));
 
+const port = process.env.PORT || 3000
+
 
 app.get('/bmi', function (request, response) {
     response.render('bmi');
@@ -42,6 +44,5 @@ app.post('/process-bmi', urlEncodedParser, function(req, res) {
 })
 
 
-app.listen(3000, function() {
-    console.log("Server Started on Port 3000");
-})
+app.listen(port);
+console.log(`Server Started on Port ${port}`);
